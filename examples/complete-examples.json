@@ -1,0 +1,544 @@
+# JsonCut Example Configurations
+
+## Image Examples
+
+### Social Media Post
+```json
+{
+  "type": "image",
+  "config": {
+    "width": 1200,
+    "height": 630,
+    "backgroundColor": "#ffffff",
+    "format": "png",
+    "layers": [
+      {
+        "type": "gradient",
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 630,
+        "gradient": {
+          "type": "linear",
+          "colors": ["#667eea", "#764ba2"],
+          "direction": "diagonal"
+        }
+      },
+      {
+        "type": "rectangle",
+        "x": 100,
+        "y": 100,
+        "width": 1000,
+        "height": 430,
+        "fill": "#ffffff",
+        "opacity": 0.9,
+        "borderRadius": 20
+      },
+      {
+        "type": "text",
+        "text": "Welcome to JsonCut",
+        "position": {
+          "x": 0.5,
+          "y": 0.35,
+          "originX": "center",
+          "originY": "center"
+        },
+        "fontSize": 48,
+        "color": "#333333",
+        "align": "center"
+      },
+      {
+        "type": "text",
+        "text": "Create stunning images with JSON configurations. Layer-based system with full control over positioning, styling, and effects.",
+        "x": 150,
+        "y": 280,
+        "width": 900,
+        "fontSize": 18,
+        "color": "#666666",
+        "align": "center",
+        "wrap": true,
+        "lineHeight": 1.5
+      },
+      {
+        "type": "circle",
+        "x": 600,
+        "y": 480,
+        "width": 80,
+        "height": 80,
+        "fill": "#4ecdc4",
+        "opacity": 0.8
+      },
+      {
+        "type": "text",
+        "text": "Start Now",
+        "x": 640,
+        "y": 520,
+        "fontSize": 20,
+        "color": "#ffffff",
+        "align": "center"
+      }
+    ]
+  }
+}
+```
+
+### Product Showcase
+```json
+{
+  "type": "image",
+  "config": {
+    "width": 1080,
+    "height": 1080,
+    "format": "png",
+    "defaults": {
+      "layer": {
+        "opacity": 0.95
+      },
+      "layerType": {
+        "text": {
+          "fontFamily": "Arial",
+          "color": "#ffffff"
+        }
+      }
+    },
+    "layers": [
+      {
+        "type": "image",
+        "path": "/image/2024-01-15/user123/product-photo.jpg",
+        "x": 0,
+        "y": 0,
+        "width": 1080,
+        "height": 1080,
+        "fit": "cover"
+      },
+      {
+        "type": "rectangle",
+        "x": 0,
+        "y": 700,
+        "width": 1080,
+        "height": 380,
+        "fill": "#000000",
+        "opacity": 0.7
+      },
+      {
+        "type": "text",
+        "text": "Premium Product",
+        "position": {
+          "x": 0.5,
+          "y": 0.75,
+          "originX": "center",
+          "originY": "center"
+        },
+        "fontSize": 48,
+        "color": "#ffffff",
+        "align": "center"
+      },
+      {
+        "type": "text",
+        "text": "Experience quality and innovation",
+        "position": {
+          "x": 0.5,
+          "y": 0.85,
+          "originX": "center",
+          "originY": "center"
+        },
+        "fontSize": 24,
+        "color": "#cccccc",
+        "align": "center"
+      }
+    ]
+  }
+}
+```
+
+## Video Examples
+
+### Product Demo Video
+```json
+{
+  "type": "video",
+  "config": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "audioFilePath": "/audio/user123/background-music.mp3",
+    "loopAudio": true,
+    "outputVolume": 0.7,
+    "keepSourceAudio": true,
+    "audioTracks": [
+      {
+        "path": "/audio/user123/voiceover.wav",
+        "mixVolume": 0.9,
+        "start": 3,
+        "cutFrom": 0,
+        "cutTo": 10
+      }
+    ],
+    "audioNorm": {
+      "enable": true,
+      "gaussSize": 5,
+      "maxGain": 28
+    },
+    "defaults": {
+      "duration": 3,
+      "layer": {
+        "fontPath": "/font/user123/custom-font.ttf"
+      },
+      "layerType": {
+        "title": {
+          "fontSize": 64,
+          "textColor": "#ffffff",
+          "position": "center"
+        },
+        "subtitle": {
+          "fontSize": 32,
+          "textColor": "#cccccc"
+        }
+      }
+    },
+    "clips": [
+      {
+        "duration": 3,
+        "layers": [
+          {
+            "type": "title-background",
+            "text": "Welcome to JsonCut",
+            "style": "fade-in",
+            "textColor": "#ffffff",
+            "fontSize": 72,
+            "position": {
+              "x": 0.5,
+              "y": 0.5,
+              "originX": "center",
+              "originY": "center"
+            },
+            "background": {
+              "type": "linear-gradient",
+              "colors": ["#667eea", "#764ba2"],
+              "direction": "diagonal"
+            }
+          }
+        ],
+        "transition": {
+          "name": "fade",
+          "duration": 1
+        }
+      },
+      {
+        "duration": 5,
+        "layers": [
+          {
+            "type": "video",
+            "path": "/video/user123/intro-clip.mp4",
+            "resizeMode": "cover",
+            "cutFrom": 0,
+            "cutTo": 5,
+            "zoomDirection": "in",
+            "zoomAmount": 0.1,
+            "mixVolume": 0.8
+          },
+          {
+            "type": "subtitle",
+            "text": "Professional video generation",
+            "fontSize": 36,
+            "textColor": "#ffffff",
+            "position": "bottom"
+          }
+        ],
+        "transition": {
+          "name": "circleopen",
+          "duration": 1.2
+        }
+      },
+      {
+        "duration": 4,
+        "layers": [
+          {
+            "type": "image",
+            "path": "/image/user123/product-shot.jpg",
+            "resizeMode": "cover",
+            "zoomDirection": "out",
+            "zoomAmount": 0.15
+          },
+          {
+            "type": "image-overlay",
+            "path": "/image/user123/logo.png",
+            "position": "top-right",
+            "width": 0.2,
+            "height": 0.2,
+            "start": 0.5,
+            "stop": 3.5
+          },
+          {
+            "type": "title",
+            "text": "Amazing Features",
+            "style": "letter-by-letter",
+            "fontSize": 56,
+            "textColor": "#ffffff",
+            "position": {
+              "x": 0.5,
+              "y": 0.3,
+              "originX": "center",
+              "originY": "center"
+            }
+          },
+          {
+            "type": "audio",
+            "path": "/audio/user123/sound-effect.mp3",
+            "mixVolume": 0.6,
+            "cutFrom": 0,
+            "cutTo": 4
+          }
+        ],
+        "transition": {
+          "name": "GlitchDisplace",
+          "duration": 0.8
+        }
+      },
+      {
+        "duration": 3,
+        "layers": [
+          {
+            "type": "fill-color",
+            "color": "#2c3e50"
+          },
+          {
+            "type": "news-title",
+            "text": "BREAKING: New Release",
+            "textColor": "#ffffff",
+            "backgroundColor": "#e74c3c",
+            "position": "bottom"
+          },
+          {
+            "type": "detached-audio",
+            "path": "/audio/user123/alert.wav",
+            "start": 0.5,
+            "mixVolume": 0.8
+          }
+        ],
+        "transition": {
+          "name": "wipeLeft",
+          "duration": 0.6
+        }
+      },
+      {
+        "duration": 4,
+        "layers": [
+          {
+            "type": "radial-gradient",
+            "colors": ["#ff6b6b", "#4ecdc4"]
+          },
+          {
+            "type": "video",
+            "path": "/video/user123/demo-clip.mp4",
+            "resizeMode": "contain",
+            "position": {
+              "x": 0.8,
+              "y": 0.2,
+              "originX": "right",
+              "originY": "top"
+            },
+            "width": 0.3,
+            "height": 0.3,
+            "zoomDirection": "in",
+            "zoomAmount": 0.1
+          },
+          {
+            "type": "title",
+            "text": "Get Started Today",
+            "style": "word-by-word",
+            "fontSize": 64,
+            "textColor": "#ffffff",
+            "position": {
+              "x": 0.2,
+              "y": 0.4,
+              "originX": "left",
+              "originY": "center"
+            }
+          },
+          {
+            "type": "subtitle",
+            "text": "Create amazing videos with JSON",
+            "fontSize": 28,
+            "textColor": "#ffffff",
+            "position": "bottom"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Explainer Video
+```json
+{
+  "type": "video",
+  "config": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 25,
+    "format": "mp4",
+    "fast": false,
+    "audioFilePath": "/audio/user123/corporate-background.mp3",
+    "loopAudio": true,
+    "outputVolume": 0.8,
+    "audioTracks": [
+      {
+        "path": "/audio/user123/narrator-voiceover.mp3",
+        "mixVolume": 1.0,
+        "start": 2,
+        "cutFrom": 0,
+        "cutTo": 25
+      }
+    ],
+    "clips": [
+      {
+        "duration": 3,
+        "layers": [
+          {
+            "type": "fill-color",
+            "color": "#1a1a2e"
+          },
+          {
+            "type": "title",
+            "text": "The Future of AI",
+            "style": "letter-by-letter",
+            "fontSize": 80,
+            "textColor": "#ffffff",
+            "position": "center"
+          }
+        ],
+        "transition": {
+          "name": "fade",
+          "duration": 1.5
+        }
+      },
+      {
+        "duration": 6,
+        "layers": [
+          {
+            "type": "image",
+            "path": "/image/user123/ai-brain-visualization.jpg",
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 1080,
+            "fit": "cover",
+            "zoomDirection": "in",
+            "zoomAmount": 0.05
+          },
+          {
+            "type": "text",
+            "text": "Artificial Intelligence is revolutionizing every industry",
+            "position": "bottom",
+            "fontSize": 36,
+            "color": "#ffffff",
+            "align": "center",
+            "backgroundColor": "#000000",
+            "opacity": 0.8
+          }
+        ],
+        "transition": {
+          "name": "circleopen",
+          "duration": 1
+        }
+      },
+      {
+        "duration": 5,
+        "layers": [
+          {
+            "type": "linear-gradient",
+            "colors": ["#667eea", "#764ba2"],
+            "direction": "diagonal"
+          },
+          {
+            "type": "title",
+            "text": "Key Benefits",
+            "style": "word-by-word",
+            "fontSize": 64,
+            "textColor": "#ffffff",
+            "position": {
+              "x": 0.5,
+              "y": 0.2,
+              "originX": "center",
+              "originY": "center"
+            }
+          },
+          {
+            "type": "text",
+            "text": "• Increased Efficiency\n• Cost Reduction\n• Innovation Acceleration",
+            "position": {
+              "x": 0.5,
+              "y": 0.6,
+              "originX": "center",
+              "originY": "center"
+            },
+            "fontSize": 32,
+            "color": "#ffffff",
+            "align": "center",
+            "lineHeight": 1.8
+          }
+        ],
+        "transition": {
+          "name": "wipeRight",
+          "duration": 0.8
+        }
+      },
+      {
+        "duration": 4,
+        "layers": [
+          {
+            "type": "video",
+            "path": "/video/user123/ai-demo.mp4",
+            "resizeMode": "cover",
+            "cutFrom": 10,
+            "cutTo": 14,
+            "zoomDirection": "out",
+            "zoomAmount": 0.1
+          },
+          {
+            "type": "title",
+            "text": "See It In Action",
+            "style": "fade-in",
+            "fontSize": 48,
+            "textColor": "#ffffff",
+            "position": "top"
+          }
+        ],
+        "transition": {
+          "name": "GlitchDisplace",
+          "duration": 0.6
+        }
+      },
+      {
+        "duration": 3,
+        "layers": [
+          {
+            "type": "radial-gradient",
+            "colors": ["#ff6b6b", "#4ecdc4", "#45b7d1"]
+          },
+          {
+            "type": "title",
+            "text": "Ready to Transform?",
+            "style": "word-by-word",
+            "fontSize": 72,
+            "textColor": "#ffffff",
+            "position": "center"
+          },
+          {
+            "type": "text",
+            "text": "Contact us today to get started",
+            "position": "bottom",
+            "fontSize": 28,
+            "color": "#ffffff",
+            "align": "center"
+          }
+        ]
+      }
+    ]
+  }
+}
+```</content>
+<parameter name="filePath">/home/trapgod/qagent/jsoncut-mcp-server/examples/complete-examples.json
